@@ -1,0 +1,65 @@
+%
+1	funct       Function {Neutro}
+2	pronoun     Pronoum {Neutro}
+3	ppron       Personal Pronoum (Pronoum) {Neutro}
+4	i           First Person Singular [Personal Pronoum (Pronoum)] {Neutro}
+5	we          First Person Plural [Personal Pronoum (Pronoum)] {Neutro}
+6	you         Second Person Singular / Plural [Personal Pronoum (Pronoum)] {Neutro}
+7	shehe       Third Person Singular [Personal Pronoum (Pronoum)] {Neutro}
+8	they        Third Person Plural [Personal Pronoum (Pronoum)] {Neutro}
+9	ipron       Impersonal Pronoum (Pronoum) {Neutro}
+10	article     Article {Neutro}
+11	verb        Verb {Neutro}
+12	auxverb     Auxiliar Verb {Neutro}
+13	past        Past Tense {Neutro}
+14	present     Present Tense {Neutro}
+15	future      Future Tense {Neutro}
+16	adverb      Adverb {Neutro} !!!
+17	preps       Preposition {Neutro}
+18	conj        Conjunctions {Neutro}
+19	negate      Negations {Neutro} !!!
+20	quant       Quantifiers {Neutro} !!!
+21	number      Numbers {Neutro}
+22	swear       Swear Word {Negativo}
+121	social      Social Processes {Neutro}
+122	family      Family (Social Processes) {Positivo} ???
+123	friend      Friend (Social Processes) {Positivo} ???
+124	humans      Humans (Social Processes) {Neutro}
+125	affect      Affective Process {Neutro}
+126	posemo      Positive Emotion (Affective Process) {Positivo}
+127	negemo      Negative Emotion (Affective Process) {Negativo}
+128	anx         Anxiety [Negative Emotion (Affective Process)] {Negativo}
+129	anger       Anger [Negative Emotion (Affective Process)] {Negativo}
+130	sad         Sadness [Negative Emotion (Affective Process)] {Negativo}
+131	cogmech     Cognitive Process {Neutro}
+132	insight     Insight (Cognitive Process) {Neutro}
+133	cause       Causation (Cognitive Process) {Neutro}
+134	discrep     Discrepancy (Cognitive Process) {Neutro}
+135	tentat      Tentative (Cognitive Process) {Neutro}
+136	certain     Certainty (Cognitive Process) {Neutro}
+137	inhib       Inhibition (Cognitive Process) {Negativo}
+138	incl        Inclusive (Cognitive Process) {Neutro} !!!
+139	excl        Exclusive (Cognitive Process) {Neutro} !!!
+140	percept     Perceptual Process {Neutro}
+141	see         See (Perceptual Process) {Neutro}
+142	hear        Hear (Perceptual Process) {Neutro}
+143	feel        Feel (Perceptual Process) {Neutro}
+146	bio         Biological Process {Neutro}
+147	body        Body (Biological Process) {Neutro}
+148	health      Health (Biological Process) {Neutro}
+149	sexual      Sexual (Biological Process) {Neutro}
+150	ingest      Ingestion (Biological Process) {Neutro}
+250	relativ     Relativity {Neutro}
+251	motion      Motion (Relativity) {Neutro}
+252	space       Space (Relativity) {Neutro}
+253	time        Time (Relativity) {Neutro}
+354	work        Work {Neutro}
+355	achieve     Achievement {Positivo}
+356	leisure     Leisure {Neutro}
+357	home        Home {Neutro}
+358	money       Money {Neutro}
+359	relig       Religion {Neutro}
+360	death       Death {Negativo}
+462	assent      Assent {Positivo}
+463	nonfl       Nonfluencies {Neutro}
+464	filler      Filler {Neutro}
