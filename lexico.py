@@ -59,8 +59,35 @@ class Lexico:
     def classify_token(self, word):
         # Receives a token and returns -1 if negative, 0 if neutral and 1 if positive
 
-    def check_intensity_token(self, word):
-        # Check if this token indicates intensity for the next one, returns 1 if false and 2 if true
+    def check_intensity_token_composto(self, tokens, i):
+    """
+    Verifica se há um intensificador (de 1 ou 2 palavras) a partir da posição i.
+
+    Parâmetros:
+        tokens (list[str]): Lista de palavras/token já extraídas do texto.
+        i (int): Posição atual na lista de tokens.
+
+    Retorna:
+        tuple:
+            - intensidade (int): 2 se for um intensificador, 1 caso contrário.
+            - avanço (int): Número de posições que devem ser puladas no loop.
+                           Ex: 1 para palavra única, 2 para composto de duas palavras.
+    """
+
+    # 1️⃣ Verifica se o token atual (posição i) é um intensificador simples (ex: "muito")
+    palavra = tokens[i].lower()  # Normaliza para minúsculas
+    if palavra in self.intensificadores:
+        return 2, 1  # Intensificador simples → aplicar intensidade 2, pular 1 token
+
+    # 2️⃣ Verifica se os dois próximos tokens formam um intensificador composto (ex: "pra caramba")
+    if i + 1 < len(tokens):  # Garante que há uma próxima palavra
+        dupla = f"{tokens[i].lower()} {tokens[i + 1].lower()}"  # Monta a expressão de duas palavras
+        if dupla in self.intensificadores:
+            return 2, 2  # Intensificador composto → aplicar intensidade 2, pular 2 tokens
+
+    # 3️⃣ Caso não seja intensificador
+    return 1, 1  # Intensidade normal (1), pular apenas 1 token
+
 
     def tokenization(self, text):
         # Takes text and creates a self.tokens (vector with tokens)
