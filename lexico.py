@@ -53,10 +53,6 @@ class Lexico:
             sum = 0
             for i in words[1:]:
                 sum = sum + self.tags[int(i)]
-            if(sum < -1):
-                sum = -1
-            if(sum > 1):
-                sum = 1
             self.classified_dictionary[words[0]] = sum
             self.dictionary[words[0]] = [int(word) for word in words[1:]]
             line = f.readline()
@@ -67,7 +63,7 @@ class Lexico:
         # Receives a token and returns -1 if negative, 0 if neutral and 1 if positive
         if(not(word in self.classified_dictionary)):
             return 0
-        return int(self.classified_dictionary[word])
+        return self.classified_dictionary[word]
 
 
     def check_intensity_token(self, word):
@@ -97,7 +93,7 @@ class Lexico:
 
         #self.tokens = rmv_sw.remove_stopwords(self.tokens)
 
-        self.tokens = [word for word in self.tokens if (word in self.dictionary) and (all(num == 1 or num > 10 for num in self.dictionary[word]))]
+        self.tokens = [word for word in self.tokens if (word in self.dictionary) and (any((self.tags[num] != 0) or (19 <= num <= 20) for num in self.dictionary[word]))]
 
     # def lematization or stemming, dont know if the lexicon is adapted to that, but can be made
     # Module Lemmatizer makes this
@@ -121,6 +117,9 @@ class Lexico:
 
         print("Stopwords Removed:")
         print(self.tokens)
+
+        print("Classification Values:")
+        print([self.classify_token(i) for i in self.tokens])
 
         # Classify tokens
         intensity = 1
