@@ -14,7 +14,7 @@
 13	past        Past Tense {Neutro}
 14	present     Present Tense {Neutro}
 15	future      Future Tense {Neutro}
-16	adverb      Adverb {Neutro} !!!
+16	adverb      Adverb {Neutro}
 17	preps       Preposition {Neutro}
 18	conj        Conjunctions {Neutro}
 19	negate      Negations {Neutro} !!!
@@ -22,8 +22,8 @@
 21	number      Numbers {Neutro}
 22	swear       Swear Word {Negativo}
 121	social      Social Processes {Neutro}
-122	family      Family (Social Processes) {Positivo} ???
-123	friend      Friend (Social Processes) {Positivo} ???
+122	family      Family (Social Processes) {Positivo}
+123	friend      Friend (Social Processes) {Positivo}
 124	humans      Humans (Social Processes) {Neutro}
 125	affect      Affective Process {Neutro}
 126	posemo      Positive Emotion (Affective Process) {Positivo}

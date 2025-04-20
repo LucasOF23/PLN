@@ -2,3 +2,5 @@ spacy
 pandas
 scipy
 scikit-learn
+nltk
+gensim

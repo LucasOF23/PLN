@@ -2,6 +2,14 @@ import numpy
 import pandas
 import scipy
 import sklearn
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+nltk.download('rslp')
+from nltk.tokenize import word_tokenize
+from Modules.lemmatizer import Lemmatizer
+from Modules.stopword import Stopword_RMV
 
 
 class Lexico:
@@ -50,38 +58,69 @@ class Lexico:
             if(sum > 1):
                 sum = 1
             self.classified_dictionary[words[0]] = sum
-            self.dictionary[words[0]] = words[1:]
+            self.dictionary[words[0]] = [int(word) for word in words[1:]]
             line = f.readline()
         
         # print(self.dictionary)
 
-    '''
     def classify_token(self, word):
         # Receives a token and returns -1 if negative, 0 if neutral and 1 if positive
+        if(not(word in self.classified_dictionary)):
+            return 0
+        return int(self.classified_dictionary[word])
+
 
     def check_intensity_token(self, word):
         # Check if this token indicates intensity for the next one, returns 1 if false and 2 if true
+        if(not(word in self.dictionary)):
+            return 1
+        
+        # Quantifiers
+        if(20 in self.dictionary[word]):
+            return 2
+        
+        # Negations
+        if(19 in self.dictionary[word]):
+            return -1
+        
+        return 1
+        
 
-    def tokenization(self, text):
-        # Takes text and creates a self.tokens (vector with tokens)
-        self.tokens
+    # Function: returns tokens of sentence
+    def tokenization(self, sentence):
+
+        self.tokens = word_tokenize(str(sentence).lower(), language='portuguese') # tokenizer
 
     def remove_stopword(self):
         # Remove tokens that dont help in classification (words with specific tags can be taken out)
+        #rmv_sw = Stopword_RMV()
+
+        #self.tokens = rmv_sw.remove_stopwords(self.tokens)
+
+        self.tokens = [word for word in self.tokens if (word in self.dictionary) and (all(num == 1 or num > 10 for num in self.dictionary[word]))]
 
     # def lematization or stemming, dont know if the lexicon is adapted to that, but can be made
+    # Module Lemmatizer makes this
 
     def classify_text(self, text = "Nothing here\n", text_file = None):
         # Receives a text or a file name and classify that text in Positive, Neutral or Negative
 
         if(text_file != None):
             # Read file into text
+            with open(text_file, 'r', encoding='utf-8') as file:
+                text = file.read()
 
         # Tokenization
         self.tokenization(text)
 
+        print("Sentence Tokenized:")
+        print(self.tokens)
+
         # Remove Stop Word
         self.remove_stopword()
+
+        print("Stopwords Removed:")
+        print(self.tokens)
 
         # Classify tokens
         intensity = 1
@@ -99,4 +138,3 @@ class Lexico:
 
         if(value == 0):
             print("Neutral")
-    '''
