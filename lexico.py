@@ -53,6 +53,10 @@ class Lexico:
             sum = 0
             for i in words[1:]:
                 sum = sum + self.tags[int(i)]
+            if(sum > 2):
+                sum = 2
+            if(sum < -2):
+                sum = -2 
             self.classified_dictionary[words[0]] = sum
             self.dictionary[words[0]] = [int(word) for word in words[1:]]
             line = f.readline()
@@ -89,16 +93,16 @@ class Lexico:
 
     def remove_stopword(self):
         # Remove tokens that dont help in classification (words with specific tags can be taken out)
-        #rmv_sw = Stopword_RMV()
+        rmv_sw = Stopword_RMV()
 
-        #self.tokens = rmv_sw.remove_stopwords(self.tokens)
+        self.tokens = rmv_sw.remove_stopwords(self.tokens)
 
-        self.tokens = [word for word in self.tokens if (word in self.dictionary) and (any((self.tags[num] != 0) or (19 <= num <= 20) for num in self.dictionary[word]))]
+    # Receives a text and returns the same text after lemmatization is applyed, not used in classical approaches
+    def lemmatization(self, text):
+        lem = Lemmatizer()
+        return lem.lemmatize_text(text)
 
-    # def lematization or stemming, dont know if the lexicon is adapted to that, but can be made
-    # Module Lemmatizer makes this
-
-    def classify_text(self, text = "Nothing here\n", text_file = None):
+    def classic_classification(self, text = "Nothing here\n", text_file = None):
         # Receives a text or a file name and classify that text in Positive, Neutral or Negative
 
         if(text_file != None):
@@ -109,17 +113,17 @@ class Lexico:
         # Tokenization
         self.tokenization(text)
 
-        print("Sentence Tokenized:")
-        print(self.tokens)
+        #print("Sentence Tokenized:")
+        #print(self.tokens)
 
         # Remove Stop Word
         self.remove_stopword()
 
-        print("Stopwords Removed:")
-        print(self.tokens)
+        #print("Stopwords Removed:")
+        #print(self.tokens)
 
-        print("Classification Values:")
-        print([self.classify_token(i) for i in self.tokens])
+        #print("Classification Values:")
+        #print([self.classify_token(i) for i in self.tokens])
 
         # Classify tokens
         intensity = 1
@@ -129,11 +133,11 @@ class Lexico:
             intensity = self.check_intensity_token(i)
 
         # Print Results
-        if(value > 0):
-            print("Positive")
+        if(value > 1):
+            return "Positivo"
         
-        if(value < 0):
-            print("Negative")
+        if(value < 1):
+            return "Negativo"
 
-        if(value == 0):
-            print("Neutral")
+        if(value >= 1 and value <= 1):
+            return "Neutro"

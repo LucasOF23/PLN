@@ -38,8 +38,8 @@
 135	tentat      Tentative (Cognitive Process) {Neutro}
 136	certain     Certainty (Cognitive Process) {Neutro}
 137	inhib       Inhibition (Cognitive Process) {Negativo}
-138	incl        Inclusive (Cognitive Process) {Neutro} !!!
-139	excl        Exclusive (Cognitive Process) {Neutro} !!!
+138	incl        Inclusive (Cognitive Process) {Neutro}
+139	excl        Exclusive (Cognitive Process) {Neutro}
 140	percept     Perceptual Process {Neutro}
 141	see         See (Perceptual Process) {Neutro}
 142	hear        Hear (Perceptual Process) {Neutro}
