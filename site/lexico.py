@@ -3,13 +3,14 @@ import pandas
 import scipy
 import sklearn
 import nltk
+import os
 nltk.download('punkt')
 nltk.download('punkt_tab')
 nltk.download('stopwords')
 nltk.download('rslp')
 from nltk.tokenize import word_tokenize
-from Modules.lemmatizer import Lemmatizer
-from Modules.stopword import Stopword_RMV
+from Site.Modules.lemmatizer import Lemmatizer
+from Site.Modules.stopword import Stopword_RMV
 
 
 class Lexico:
@@ -22,7 +23,8 @@ class Lexico:
 
         # Open Lexicon
 
-        f = open(nome_lexico, "r")
+        path_arquivo = os.path.join("Site", "Docs", "LIWC.txt")
+        f = open(path_arquivo, "r")
 
         # Reading Tags
 
