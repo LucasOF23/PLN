@@ -9,22 +9,23 @@ nltk.download('punkt_tab')
 nltk.download('stopwords')
 nltk.download('rslp')
 from nltk.tokenize import word_tokenize
-from Site.Modules.lemmatizer import Lemmatizer
-from Site.Modules.stopword import Stopword_RMV
+from Modules.lemmatizer import Lemmatizer
+from Modules.stopword import Stopword_RMV
 
 
 class Lexico:
 
-    def __init__(self, nome_lexico):
+    def __init__(self, nome_lexico = None):
         # Defines 3 dictionaries, one for the tags and the other 2 for the words:
         # - self.tags has each tag classification (-1 neg, 0 neu, 1 pos)
         # - self.classified_dictionary has each word classification (-1 neg, 0 neu, 1 pos)
         # - self.dictionary has each word and its tags
 
         # Open Lexicon
-
-        path_arquivo = os.path.join("Site", "Docs", "LIWC.txt")
-        f = open(path_arquivo, "r")
+        
+        if(nome_lexico == None):
+            nome_lexico = os.path.join("Docs", "LIWC.txt")
+        f = open(nome_lexico, "r")
 
         # Reading Tags
 
