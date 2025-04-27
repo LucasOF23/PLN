@@ -1,6 +1,7 @@
 import numpy
 import pandas
 import scipy
+import spacy
 import sklearn
 import nltk
 import os

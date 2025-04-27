@@ -1,8 +1,8 @@
 spacy
 pandas
-scipy
+scipy==1.13.1
 scikit-learn
 nltk
-gensim
+gensim==4.3.3
 unidecode
 flask
