@@ -54,7 +54,7 @@ class Stopword_RMV:
         sw = (np.unique(sw)).tolist()
         
         # removing some important words
-        sw_remove = ['apoia', 'apoio', 'baixo', 'bastante', 'bem', 'boa', 'bom', 'certamente', 'certeza', 'cima', 'contra', 'longe', 'muito', 'muitos', 'não',  'sim', 'somente']
+        sw_remove = ['apoia', 'apoio', 'baixo', 'bastante', 'bem', 'boa', 'bom', 'certamente', 'certeza', 'cima', 'contra', 'longe', 'muito', 'muitos', 'não', 'nada', 'sim', 'somente']
         sw = [st for st in sw if st not in sw_remove]
         
         #print('StopWords_pt: size = %d.' % len(sw))
